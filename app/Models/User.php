@@ -10,11 +10,6 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'identificador',
         'name',
@@ -28,21 +23,11 @@ class User extends Authenticatable
         'is_admin',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
     protected function casts(): array
     {
         return [
@@ -53,27 +38,21 @@ class User extends Authenticatable
         ];
     }
 
-    /**
-     * Relación: Un usuario pertenece a una ciudad
-     */
     public function city()
     {
         return $this->belongsTo(City::class);
     }
 
-    /**
-     * Relación: Un usuario tiene muchos emails
-     */
     public function emails()
     {
         return $this->hasMany(Email::class);
     }
 
-    /**
-     * Accessor: Calcular edad desde fecha de nacimiento
-     */
     public function getEdadAttribute()
     {
-        return $this->fecha_nacimiento ? $this->fecha_nacimiento->age : null;
+        if ($this->fecha_nacimiento) {
+            return \Carbon\Carbon::parse($this->fecha_nacimiento)->age;
+        }
+        return null;
     }
 }
