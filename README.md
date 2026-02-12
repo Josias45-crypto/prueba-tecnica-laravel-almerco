@@ -179,7 +179,7 @@ php artisan test
 
 Autor
 
-**Josias Kripto** - Prueba técnica para Grupo Almerco
+**Kripto** - Prueba técnica para Grupo Almerco
 
 Licencia
 
