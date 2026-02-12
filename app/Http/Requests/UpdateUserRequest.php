@@ -41,7 +41,7 @@ class UpdateUserRequest extends FormRequest
                 'confirmed'
             ],
             'nombre' => 'required|string|max:100',
-            'numero_celular' => 'nullable|digits:10',
+            'numero_celular' => 'nullable|digits:9',
             'fecha_nacimiento' => [
                 'required',
                 'date',
@@ -70,7 +70,7 @@ class UpdateUserRequest extends FormRequest
             'nombre.required' => 'El nombre es obligatorio.',
             'nombre.max' => 'El nombre no puede exceder 100 caracteres.',
             
-            'numero_celular.digits' => 'El número celular debe tener 10 dígitos.',
+            'numero_celular.digits' => 'El número celular debe tener 9 dígitos.',
             
             'fecha_nacimiento.required' => 'La fecha de nacimiento es obligatoria.',
             'fecha_nacimiento.date' => 'Debe ser una fecha válida.',

@@ -64,11 +64,12 @@
                         <div class="mb-3">
                             <label for="numero_celular" class="form-label">Número Celular (opcional)</label>
                             <input type="text" class="form-control @error('numero_celular') is-invalid @enderror" 
-                                   id="numero_celular" name="numero_celular" value="{{ old('numero_celular') }}" maxlength="10">
+                                   id="numero_celular" name="numero_celular" value="{{ old('numero_celular') }}" maxlength="9">
                             @error('numero_celular')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
+                        
 
                         <!-- Cédula -->
                         <div class="mb-3">

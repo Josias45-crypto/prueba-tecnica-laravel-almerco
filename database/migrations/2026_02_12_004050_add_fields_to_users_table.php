@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->unsignedBigInteger('identificador')->after('id');
             $table->string('nombre', 100)->after('name');
-            $table->string('numero_celular', 10)->nullable()->after('nombre');
+            $table->string('numero_celular', 9)->nullable()->after('nombre');
             $table->string('cedula', 11)->after('numero_celular');
             $table->date('fecha_nacimiento')->after('cedula');
             $table->foreignId('city_id')->after('fecha_nacimiento')->constrained()->onDelete('cascade');

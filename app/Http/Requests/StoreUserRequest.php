@@ -34,7 +34,7 @@ class StoreUserRequest extends FormRequest
                 'confirmed'
             ],
             'nombre' => 'required|string|max:100',
-            'numero_celular' => 'nullable|digits:10',
+            'numero_celular' => 'nullable|digits:9',
             'cedula' => 'required|string|max:11',
             'fecha_nacimiento' => [
                 'required',
@@ -71,7 +71,7 @@ class StoreUserRequest extends FormRequest
             'nombre.required' => 'El nombre es obligatorio.',
             'nombre.max' => 'El nombre no puede exceder 100 caracteres.',
             
-            'numero_celular.digits' => 'El número celular debe tener 10 dígitos.',
+            'numero_celular.digits' => 'El número celular debe tener 9 dígitos.',
             
             'cedula.required' => 'La cédula es obligatoria.',
             'cedula.max' => 'La cédula no puede exceder 11 caracteres.',
