@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\LocationController;
 
 // Ruta principal redirige al login
@@ -22,9 +23,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('users-data', [UserController::class, 'getData'])->name('users.data');
     
     // Emails (admin ve todos)
-    Route::get('emails', function() {
-        return view('admin.emails.index');
-    })->name('emails.index');
+    Route::get('emails', [EmailController::class, 'index'])->name('emails.index');
 });
 
 // Rutas de usuarios normales (protegidas por auth)
@@ -32,7 +31,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     
     // Emails (usuarios ven solo los suyos)
-    Route::get('emails', function() {
-        return view('emails.index');
-    })->name('emails.index');
+    Route::resource('emails', EmailController::class)->only(['index', 'create', 'store']);
+    Route::get('emails-data', [EmailController::class, 'getData'])->name('emails.data');
 });
