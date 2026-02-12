@@ -1,59 +1,186 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sistema de Gestión de Usuarios y Emails - Grupo Almerco
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistema web desarrollado con Laravel para la administración de usuarios y envío de emails mediante colas.
 
-## About Laravel
+## 📋 Características
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- ✅ Autenticación de usuarios (Admin y Usuarios normales)
+- ✅ CRUD completo de usuarios con validaciones
+- ✅ Selectores anidados (País → Estado → Ciudad) con AJAX
+- ✅ DataTables con filtros, ordenamiento y paginación server-side
+- ✅ Sistema de envío de emails con colas
+- ✅ Estados de emails (No enviado / Enviado)
+- ✅ Sistema de logs para auditoría
+- ✅ Roles diferenciados (Admin / Usuario)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🛠️ Tecnologías
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Backend:** PHP 8.1+ / Laravel 11
+- **Frontend:** Bootstrap 5, jQuery, DataTables
+- **Base de datos:** MySQL 8.0 / MariaDB
+- **Gestión de colas:** Laravel Queue
 
-## Learning Laravel
+## 📦 Requisitos
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+- PHP >= 8.1
+- Composer
+- MySQL/MariaDB
+- Node.js >= 16
+- NPM
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🚀 Instalación
 
-## Laravel Sponsors
+### 1. Clonar el repositorio
+```bash
+git clone https://github.com/Josias45-crypto/prueba-tecnica-laravel-almerco.git
+cd prueba-tecnica-laravel-almerco
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 2. Instalar dependencias
+```bash
+composer install
+npm install
+```
 
-### Premium Partners
+### 3. Configurar archivo .env
+```bash
+cp .env.example .env
+```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Editar el archivo `.env` con tus credenciales de base de datos:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=grupo_almerco
+DB_USERNAME=tu_usuario
+DB_PASSWORD=tu_contraseña
 
-## Contributing
+QUEUE_CONNECTION=database
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 4. Generar key de la aplicación
+```bash
+php artisan key:generate
+```
 
-## Code of Conduct
+### 5. Ejecutar migraciones y seeders
+```bash
+php artisan migrate --seed
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 6. Compilar assets
+```bash
+npm run build
+```
 
-## Security Vulnerabilities
+### 7. Iniciar servidor
+```bash
+php artisan serve
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+La aplicación estará disponible en: `http://localhost:8000`
 
-## License
+## 👤 Credenciales de acceso
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Administrador
+- **Email:** admin@grupoalmerco.com
+- **Contraseña:** Admin@123
+
+### Usuario Normal
+- **Email:** juan@example.com
+- **Contraseña:** User@123
+
+## 📧 Sistema de Emails
+
+### Procesar cola de emails
+
+Para enviar los emails encolados, ejecuta:
+```bash
+php artisan emails:process
+```
+
+O para procesar continuamente:
+```bash
+php artisan queue:work
+```
+
+## 📂 Estructura del Proyecto
+```
+├── app/
+│   ├── Console/Commands/     # Comandos Artisan
+│   ├── Http/
+│   │   ├── Controllers/      # Controladores
+│   │   ├── Middleware/       # Middleware personalizado
+│   │   └── Requests/         # Form Requests (validaciones)
+│   ├── Jobs/                 # Jobs de cola
+│   ├── Mail/                 # Mailables
+│   ├── Models/               # Modelos Eloquent
+│   └── Observers/            # Observers para logs
+├── database/
+│   ├── migrations/           # Migraciones
+│   └── seeders/              # Seeders
+├── resources/
+│   ├── views/                # Vistas Blade
+│   └── sass/                 # Estilos SCSS
+└── routes/
+    └── web.php               # Rutas web
+```
+
+## 🔧 Funcionalidades Principales
+
+### Módulo de Usuarios (Solo Admin)
+
+- Crear usuarios con validaciones estrictas
+- Editar usuarios (email y cédula no editables)
+- Eliminar usuarios
+- Listado con DataTable
+- Filtros de búsqueda
+- Cálculo automático de edad
+
+### Módulo de Emails
+
+- Crear y enviar emails
+- Sistema de colas para envío asíncrono
+- Estados: No enviado / Enviado
+- Usuarios ven solo sus emails
+- Admin ve todos los emails
+
+### Sistema de Logs
+
+- Registro automático de:
+  - Creación de usuarios
+  - Actualización de usuarios
+  - Eliminación de usuarios
+  - Creación de emails
+  - Cambios de estado de emails
+
+## 📝 Validaciones Implementadas
+
+### Usuarios
+- Identificador: numérico, único
+- Email: válido, único, no editable
+- Contraseña: mín 8 caracteres, 1 número, 1 mayúscula, 1 carácter especial
+- Cédula: máx 11 caracteres, no editable
+- Fecha de nacimiento: mayor de 18 años
+- Celular: 10 dígitos (opcional)
+
+### Emails
+- Asunto: obligatorio
+- Destinatario: email válido
+- Cuerpo: obligatorio
+
+## 🧪 Testing
+
+Para ejecutar pruebas (si se implementan):
+```bash
+php artisan test
+```
+
+## 👨‍💻 Autor
+
+**Josias** - Prueba técnica para Grupo Almerco
+
+## 📄 Licencia
+
+Este proyecto es una prueba técnica desarrollada para Grupo Almerco.
