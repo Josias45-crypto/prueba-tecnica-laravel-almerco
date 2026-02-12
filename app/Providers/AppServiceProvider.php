@@ -3,6 +3,10 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Models\User;
+use App\Models\Email;
+use App\Observers\UserObserver;
+use App\Observers\EmailObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Registrar observers
+        User::observe(UserObserver::class);
+        Email::observe(EmailObserver::class);
     }
 }
