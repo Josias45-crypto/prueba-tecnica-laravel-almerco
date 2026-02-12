@@ -2,47 +2,47 @@
 
 Sistema web desarrollado con Laravel para la administración de usuarios y envío de emails mediante colas.
 
-## 📋 Características
+Características de la app
 
-- ✅ Autenticación de usuarios (Admin y Usuarios normales)
-- ✅ CRUD completo de usuarios con validaciones
-- ✅ Selectores anidados (País → Estado → Ciudad) con AJAX
-- ✅ DataTables con filtros, ordenamiento y paginación server-side
-- ✅ Sistema de envío de emails con colas
-- ✅ Estados de emails (No enviado / Enviado)
-- ✅ Sistema de logs para auditoría
-- ✅ Roles diferenciados (Admin / Usuario)
+ Autenticación de usuarios (Admin y Usuarios normales)
+ CRUD completo de usuarios con validaciones
+ Selectores anidados (País → Estado → Ciudad) con AJAX
+ DataTables con filtros, ordenamiento y paginación server-side
+ Sistema de envío de emails con colas
+ Estados de emails (No enviado / Enviado)
+ Sistema de logs para auditoría
+ Roles diferenciados (Admin / Usuario)
 
-## 🛠️ Tecnologías
+ Tecnologías
 
-- **Backend:** PHP 8.1+ / Laravel 11
-- **Frontend:** Bootstrap 5, jQuery, DataTables
-- **Base de datos:** MySQL 8.0 / MariaDB
-- **Gestión de colas:** Laravel Queue
+ **Backend:** PHP 8.1+ / Laravel 11
+ **Frontend:** Bootstrap 5, jQuery, DataTables
+ **Base de datos:** MySQL 8.0 / MariaDB
+ **Gestión de colas:** Laravel Queue
 
-## 📦 Requisitos
+Requisitos
 
-- PHP >= 8.1
-- Composer
-- MySQL/MariaDB
-- Node.js >= 16
-- NPM
+ PHP >= 8.1
+ Composer
+ MySQL/MariaDB
+ Node.js >= 16
+ NPM
 
-## 🚀 Instalación
+Instalación
 
-### 1. Clonar el repositorio
+1. Clonar el repositorio
 ```bash
 git clone https://github.com/Josias45-crypto/prueba-tecnica-laravel-almerco.git
 cd prueba-tecnica-laravel-almerco
 ```
 
-### 2. Instalar dependencias
+Instalar dependencias
 ```bash
 composer install
 npm install
 ```
 
-### 3. Configurar archivo .env
+3. Configurar archivo .env
 ```bash
 cp .env.example .env
 ```
@@ -59,41 +59,41 @@ DB_PASSWORD=tu_contraseña
 QUEUE_CONNECTION=database
 ```
 
-### 4. Generar key de la aplicación
+4. Generar key de la aplicación
 ```bash
 php artisan key:generate
 ```
 
-### 5. Ejecutar migraciones y seeders
+5. Ejecutar migraciones y seeders
 ```bash
 php artisan migrate --seed
 ```
 
-### 6. Compilar assets
+6. Compilar assets
 ```bash
 npm run build
 ```
 
-### 7. Iniciar servidor
+7. Iniciar servidor
 ```bash
 php artisan serve
 ```
 
 La aplicación estará disponible en: `http://localhost:8000`
 
-## 👤 Credenciales de acceso
+👤 Credenciales de acceso
 
-### Administrador
+Administrador
 - **Email:** admin@grupoalmerco.com
 - **Contraseña:** Admin@123
 
-### Usuario Normal
-- **Email:** juan@example.com
-- **Contraseña:** User@123
+Usuario Normal
+**Email:** juan@example.com
+**Contraseña:** User@123
 
-## 📧 Sistema de Emails
+Sistema de Emails
 
-### Procesar cola de emails
+Procesar cola de emails
 
 Para enviar los emails encolados, ejecuta:
 ```bash
@@ -105,7 +105,7 @@ O para procesar continuamente:
 php artisan queue:work
 ```
 
-## 📂 Estructura del Proyecto
+Estructura del Proyecto
 ```
 ├── app/
 │   ├── Console/Commands/     # Comandos Artisan
@@ -127,60 +127,60 @@ php artisan queue:work
     └── web.php               # Rutas web
 ```
 
-## 🔧 Funcionalidades Principales
+Funcionalidades Principales
 
-### Módulo de Usuarios (Solo Admin)
+Módulo de Usuarios (Solo Admin)
 
-- Crear usuarios con validaciones estrictas
-- Editar usuarios (email y cédula no editables)
-- Eliminar usuarios
-- Listado con DataTable
-- Filtros de búsqueda
-- Cálculo automático de edad
+Crear usuarios con validaciones estrictas
+Editar usuarios (email y cédula no editables)
+Eliminar usuarios
+Listado con DataTable
+Filtros de búsqueda
+Cálculo automático de edad
 
-### Módulo de Emails
+Módulo de Emails
 
-- Crear y enviar emails
-- Sistema de colas para envío asíncrono
-- Estados: No enviado / Enviado
-- Usuarios ven solo sus emails
-- Admin ve todos los emails
+Crear y enviar emails
+Sistema de colas para envío asíncrono
+Estados: No enviado / Enviado
+Usuarios ven solo sus emails
+Admin ve todos los emails
 
-### Sistema de Logs
+Sistema de Logs
 
-- Registro automático de:
-  - Creación de usuarios
-  - Actualización de usuarios
-  - Eliminación de usuarios
-  - Creación de emails
-  - Cambios de estado de emails
+Registro automático de:
+Creación de usuarios
+Actualización de usuarios
+Eliminación de usuarios
+Creación de emails
+Cambios de estado de emails
 
-## 📝 Validaciones Implementadas
+Validaciones Implementadas
 
-### Usuarios
-- Identificador: numérico, único
-- Email: válido, único, no editable
-- Contraseña: mín 8 caracteres, 1 número, 1 mayúscula, 1 carácter especial
-- Cédula: máx 11 caracteres, no editable
-- Fecha de nacimiento: mayor de 18 años
-- Celular: 10 dígitos (opcional)
+Usuarios
+Identificador: numérico, único
+Email: válido, único, no editable
+Contraseña: mín 8 caracteres, 1 número, 1 mayúscula, 1 carácter especial
+Cédula: máx 11 caracteres, no editable
+Fecha de nacimiento: mayor de 18 años
+Celular: 10 dígitos (opcional)
 
-### Emails
-- Asunto: obligatorio
-- Destinatario: email válido
-- Cuerpo: obligatorio
+Emails
+Asunto: obligatorio
+Destinatario: email válido
+Cuerpo: obligatorio
 
-## 🧪 Testing
+Testing
 
-Para ejecutar pruebas (si se implementan):
+Para ejecutar pruebas (si se implementann):
 ```bash
 php artisan test
 ```
 
-## 👨‍💻 Autor
+Autor
 
-**Josias** - Prueba técnica para Grupo Almerco
+**Josias Kripto** - Prueba técnica para Grupo Almerco
 
-## 📄 Licencia
+Licencia
 
-Este proyecto es una prueba técnica desarrollada para Grupo Almerco.
+Sin licencia, esto es una prueba para el Grupo Almerco.
